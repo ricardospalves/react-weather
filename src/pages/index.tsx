@@ -6,7 +6,6 @@ const Home: NextPage = () => {
     <div>
       <Head>
         <title>React Weather</title>
-        <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <h1 className="font-bold">React Weather</h1>
