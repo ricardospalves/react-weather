@@ -3,12 +3,14 @@ import Head from 'next/head'
 
 const Home: NextPage = () => {
   return (
-    <div>
+    <div className="min-h-screen flex flex-col text-black bg-white dark:text-white dark:bg-neutral-900">
       <Head>
         <title>React Weather</title>
       </Head>
 
-      <h1 className="font-bold">React Weather</h1>
+      <main className="grow">
+        <h1 className="font-bold">React Weather</h1>
+      </main>
     </div>
   )
 }
