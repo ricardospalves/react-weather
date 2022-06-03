@@ -1,6 +1,7 @@
 import type { GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
 
+import { GENERAL } from 'src/constants'
 import { Base } from 'src/components/Base'
 import { Footer } from 'src/components/Footer'
 
@@ -8,7 +9,8 @@ const Home: NextPage = () => {
   return (
     <>
       <Head>
-        <title>React Weather</title>
+        <title>{GENERAL.appName}</title>
+        <meta name="description" content={GENERAL.description} />
       </Head>
 
       <Base>
