@@ -3,6 +3,7 @@ import Head from 'next/head'
 
 import { GENERAL } from 'src/constants'
 import { Base } from 'src/components/Base'
+import { Header } from 'src/components/Header'
 import { Footer } from 'src/components/Footer'
 
 const Home: NextPage = () => {
@@ -14,6 +15,8 @@ const Home: NextPage = () => {
       </Head>
 
       <Base>
+        <Header />
+
         <main className="grow">
           <h1 className="font-bold">React Weather</h1>
         </main>
