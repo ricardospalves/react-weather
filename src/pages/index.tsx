@@ -3,8 +3,10 @@ import Head from 'next/head'
 
 import { GENERAL } from 'src/constants'
 import { Base } from 'src/components/Base'
+import { Container } from 'src/components/Container'
 import { Header } from 'src/components/Header'
 import { Footer } from 'src/components/Footer'
+import { SearchForm } from 'src/components/SearchForm'
 
 const Home: NextPage = () => {
   return (
@@ -17,9 +19,9 @@ const Home: NextPage = () => {
       <Base>
         <Header />
 
-        <main className="grow">
-          <h1 className="font-bold">React Weather</h1>
-        </main>
+        <Container as="main" className="grow py-8" edgePadding>
+          <SearchForm />
+        </Container>
 
         <Footer />
       </Base>
