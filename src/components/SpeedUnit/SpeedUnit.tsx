@@ -6,6 +6,8 @@ type Props = {
 }
 
 export const SpeedUnit = ({ speed }: Props) => {
+  speed = Math.round(speed)
+
   const title = `${Math.abs(speed)} ${pluralize(speed, {
     singular: 'quilômetro',
   })} por hora`

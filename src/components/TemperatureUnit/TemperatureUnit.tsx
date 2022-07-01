@@ -7,6 +7,8 @@ type Props = {
 }
 
 export const TemperatureUnit = ({ temperature, removeDecoration }: Props) => {
+  temperature = Math.round(temperature)
+
   const title = `${Math.abs(temperature)} ${pluralize(temperature, {
     singular: 'grau',
   })} Celsius`
