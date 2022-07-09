@@ -1,13 +1,20 @@
-import type { SetStateAction, Dispatch } from 'react'
+import { SetStateAction, Dispatch, useEffect, useCallback } from 'react'
 import { createContext, ReactNode, useState } from 'react'
 import { UseQueryResult } from 'react-query'
 
 import type { UseCurrentWeatherDataData } from 'src/hooks/useCurrentWeatherData'
 import { useCurrentWeatherData } from 'src/hooks/useCurrentWeatherData'
 
+type Coordinates = {
+  latitude?: number
+  longitude?: number
+}
+
 type CurrentWeatherDataContextProps = {
   search: string
   setSearch: Dispatch<SetStateAction<string>>
+  coordinates: Coordinates
+  setCoordinates: Dispatch<SetStateAction<Coordinates>>
   query: UseQueryResult<UseCurrentWeatherDataData>
 }
 
@@ -21,9 +28,27 @@ type Props = {
 
 export const CurrentWeatherDataProvider = ({ children }: Props) => {
   const [search, setSearch] = useState('')
+  const [coordinates, setCoordinates] = useState<Coordinates>({
+    latitude: undefined,
+    longitude: undefined,
+  })
   const query = useCurrentWeatherData({
     q: search,
+    lat: coordinates.latitude,
+    lon: coordinates.longitude,
   })
+
+  const dispatchRefetch = useCallback(() => {
+    query.refetch()
+  }, [query])
+
+  useEffect(() => {
+    const { latitude, longitude } = coordinates
+
+    if (latitude && longitude) {
+      dispatchRefetch()
+    }
+  }, [coordinates, dispatchRefetch])
 
   return (
     <CurrentWeatherDataContext.Provider
@@ -31,6 +56,8 @@ export const CurrentWeatherDataProvider = ({ children }: Props) => {
         search,
         setSearch,
         query,
+        coordinates,
+        setCoordinates,
       }}
     >
       {children}

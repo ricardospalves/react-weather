@@ -55,15 +55,21 @@ export type GetCurrentWeatherDataResponseData = {
 }
 
 export type GetCurrentWeatherDataProps = {
-  q: string
+  q?: string
+  lat?: number
+  lon?: number
 }
 
 export const getCurrentWeatherData = async ({
   q,
+  lat,
+  lon,
 }: GetCurrentWeatherDataProps) => {
   const response = await apiClient.get('weather', {
     params: {
-      q,
+      ...(q && { q }),
+      ...(lat && { lat }),
+      ...(lon && { lon }),
     },
   })
 
