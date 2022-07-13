@@ -8,7 +8,7 @@ import { SpeedUnit } from '../SpeedUnit'
 import { ComplementaryWeather } from '../ComplementaryWeather'
 import { Skeleton } from '../Skeleton'
 
-export const LocalWeather = () => {
+export const CurrentWeather = () => {
   const {
     query: { data, isFetching },
   } = useContext(CurrentWeatherDataContext)

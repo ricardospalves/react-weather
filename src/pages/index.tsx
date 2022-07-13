@@ -7,8 +7,7 @@ import { Container } from 'src/components/Container'
 import { Header } from 'src/components/Header'
 import { Footer } from 'src/components/Footer'
 import { SearchForm } from 'src/components/SearchForm'
-import { LocalWeather } from 'src/components/LocalWeather'
-import { CurrentWeatherDataProvider } from 'src/contexts/CurrentWeatherDataContext'
+import { CurrentWeather } from 'src/components/CurrentWeather'
 
 const Home: NextPage = () => {
   return (
@@ -18,18 +17,16 @@ const Home: NextPage = () => {
         <meta name="description" content={GENERAL.description} />
       </Head>
 
-      <CurrentWeatherDataProvider>
-        <Base>
-          <Header />
+      <Base>
+        <Header />
 
-          <Container as="main" className="grow py-8" edgePadding>
-            <SearchForm />
-            <LocalWeather />
-          </Container>
+        <Container as="main" className="grow py-8" edgePadding>
+          <SearchForm />
+          <CurrentWeather />
+        </Container>
 
-          <Footer />
-        </Base>
-      </CurrentWeatherDataProvider>
+        <Footer />
+      </Base>
     </>
   )
 }
