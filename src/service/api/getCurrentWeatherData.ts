@@ -52,6 +52,7 @@ export type GetCurrentWeatherDataResponseData = {
   id: number
   name: string
   cod: number
+  message?: string
 }
 
 export type GetCurrentWeatherDataProps = {
