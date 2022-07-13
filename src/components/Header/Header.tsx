@@ -9,9 +9,7 @@ export const Header = () => {
       className="flex justify-between h-10 shrink-0"
       edgePadding
     >
-      <h1 className="uppercase font-bold h-full flex items-center">
-        {GENERAL.appName}
-      </h1>
+      <h1 className="font-bold h-full flex items-center">{GENERAL.appName}</h1>
 
       <HtmlLink
         href={GITHUB.repositoryUrl}
