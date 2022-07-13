@@ -37,10 +37,11 @@ export const CurrentWeatherDataProvider = ({ children }: Props) => {
     lat: coordinates.latitude,
     lon: coordinates.longitude,
   })
+  const { refetch } = query
 
   const dispatchRefetch = useCallback(() => {
-    query.refetch()
-  }, [query])
+    refetch()
+  }, [refetch])
 
   useEffect(() => {
     const { latitude, longitude } = coordinates
