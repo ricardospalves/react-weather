@@ -42,6 +42,7 @@ const Home: NextPage = () => {
             <CurrentWeatherError
               heading="Erro desconhecido"
               description="Desculpe, ocorreu um erro desconhecido, por favor, tente novamente. Se o problema continuar, tente novamente em alguns minutos."
+              theme="danger"
             />
           )}
 
