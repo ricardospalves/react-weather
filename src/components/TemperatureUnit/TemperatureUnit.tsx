@@ -4,9 +4,14 @@ import { Abbr } from '../Abbr'
 type Props = {
   temperature: number
   removeDecoration?: boolean
+  className?: string
 }
 
-export const TemperatureUnit = ({ temperature, removeDecoration }: Props) => {
+export const TemperatureUnit = ({
+  temperature,
+  removeDecoration,
+  className,
+}: Props) => {
   temperature = Math.round(temperature)
 
   const title = `${Math.abs(temperature)} ${pluralize(temperature, {
@@ -21,6 +26,7 @@ export const TemperatureUnit = ({ temperature, removeDecoration }: Props) => {
     <Abbr
       title={isNegative ? negativeTitle : title}
       removeDecoration={removeDecoration}
+      className={className}
     >
       {temperature}°C
     </Abbr>
